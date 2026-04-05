@@ -1,0 +1,442 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ═══ DARK THEME (Default) ═══ */
+  :root,
+  [data-theme="dark"] {
+    --color-bg: 10 14 10;               /* #0A0E0A Deep Forest Charcoal */
+    --color-fg: 249 250 247;            /* #F9FAF7 Ivory Canvas */
+    --color-surface: 249 250 247;
+    --color-surface-alpha: 0.03;
+    --color-surface-hover-alpha: 0.06;
+    --color-gold: 212 175 55;           /* #D4AF37 Heritage Gold */
+    --color-muted: 112 121 115;         /* #707973 */
+    --color-muted-light: 160 172 163;   /* #A0ACA3 */
+    --color-muted-dark: 74 82 76;       /* #4A524C */
+
+    --noise-opacity: 0.03;
+    --noise-blend: screen;
+    --scrollbar-thumb: rgba(230, 185, 122, 0.25);
+    --scrollbar-thumb-hover: rgba(230, 185, 122, 0.5);
+
+    /* Navbar scroll bg */
+    --nav-bg-scroll: rgba(10, 14, 10, 0.85);
+    --nav-shadow: 0 4px 20px -5px rgba(255, 255, 255, 0.03);
+    --nav-border: rgba(255, 255, 255, 0.06);
+  }
+
+  /* ═══ LIGHT THEME ═══ */
+  [data-theme="light"] {
+    --color-bg: 252 250 245;            /* #FCFAF5 Warm Ivory */
+    --color-fg: 28 32 28;               /* #1C201C Deep Ink */
+    --color-surface: 28 32 28;
+    --color-surface-alpha: 0.04;
+    --color-surface-hover-alpha: 0.07;
+    --color-gold: 170 120 0;            /* Deeper gold for contrast */
+    --color-muted: 110 105 95;
+    --color-muted-light: 80 75 68;
+    --color-muted-dark: 170 164 155;
+
+    --noise-opacity: 0.012;
+    --noise-blend: multiply;
+    --scrollbar-thumb: rgba(170, 120, 0, 0.2);
+    --scrollbar-thumb-hover: rgba(170, 120, 0, 0.4);
+
+    --nav-bg-scroll: rgba(252, 250, 245, 0.9);
+    --nav-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.06);
+    --nav-border: rgba(0, 0, 0, 0.06);
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-fg));
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Global Noise Texture Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: var(--noise-opacity);
+    pointer-events: none;
+    mix-blend-mode: var(--noise-blend);
+    transition: opacity 0.5s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Selection */
+  [data-theme="dark"] ::selection {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+  [data-theme="light"] ::selection {
+    background: rgba(170, 120, 0, 0.15);
+    color: #1C201C;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   LIGHT MODE — Global overrides
+   This handles all the hardcoded white/black  
+   references across the entire component tree.
+   ═══════════════════════════════════════════════ */
+
+/* -- Core text overrides -- */
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Swap white text to dark in light mode */
+[data-theme="light"] .text-white {
+  color: rgb(var(--color-fg)) !important;
+}
+[data-theme="light"] .text-white\/90 {
+  color: rgb(var(--color-fg) / 0.9) !important;
+}
+[data-theme="light"] .text-white\/85 {
+  color: rgb(var(--color-fg) / 0.85) !important;
+}
+[data-theme="light"] .text-white\/80 {
+  color: rgb(var(--color-fg) / 0.8) !important;
+}
+[data-theme="light"] .text-white\/70 {
+  color: rgb(var(--color-fg) / 0.7) !important;
+}
+[data-theme="light"] .text-white\/60 {
+  color: rgb(var(--color-fg) / 0.6) !important;
+}
+[data-theme="light"] .text-white\/55 {
+  color: rgb(var(--color-fg) / 0.55) !important;
+}
+[data-theme="light"] .text-white\/50 {
+  color: rgb(var(--color-fg) / 0.5) !important;
+}
+[data-theme="light"] .text-white\/45 {
+  color: rgb(var(--color-fg) / 0.45) !important;
+}
+[data-theme="light"] .text-white\/40 {
+  color: rgb(var(--color-fg) / 0.4) !important;
+}
+[data-theme="light"] .text-white\/35 {
+  color: rgb(var(--color-fg) / 0.35) !important;
+}
+[data-theme="light"] .text-white\/30 {
+  color: rgb(var(--color-fg) / 0.3) !important;
+}
+[data-theme="light"] .text-white\/25 {
+  color: rgb(var(--color-fg) / 0.25) !important;
+}
+[data-theme="light"] .text-white\/20 {
+  color: rgb(var(--color-fg) / 0.2) !important;
+}
+[data-theme="light"] .text-white\/15 {
+  color: rgb(var(--color-fg) / 0.15) !important;
+}
+[data-theme="light"] .text-white\/12 {
+  color: rgb(var(--color-fg) / 0.12) !important;
+}
+[data-theme="light"] .text-white\/10 {
+  color: rgb(var(--color-fg) / 0.1) !important;
+}
+[data-theme="light"] .text-white\/8 {
+  color: rgb(var(--color-fg) / 0.08) !important;
+}
+
+/* -- Background overrides -- */
+/* Subtle glass backgrounds on dark stay subtle on light */
+[data-theme="light"] .bg-white\/\[0\.02\],
+[data-theme="light"] .bg-white\/\[0\.01\],
+[data-theme="light"] .bg-white\/\[0\.03\],
+[data-theme="light"] .bg-white\/\[0\.04\] {
+  background-color: rgb(var(--color-fg) / 0.03) !important;
+}
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/\[0\.05\] {
+  background-color: rgb(var(--color-fg) / 0.04) !important;
+}
+
+/* Hardcoded dark backgrounds become light */
+[data-theme="light"] .bg-\[\#080B08\],
+[data-theme="light"] .bg-\[\#0A0E0A\],
+[data-theme="light"] .bg-\[\#030403\],
+[data-theme="light"] .bg-\[\#0F130F\],
+[data-theme="light"] .bg-\[\#050705\],
+[data-theme="light"] .bg-\[\#0E120E\] {
+  background-color: rgb(var(--color-bg)) !important;
+}
+
+/* -- Border overrides -- */
+[data-theme="light"] .border-white\/\[0\.03\],
+[data-theme="light"] .border-white\/\[0\.04\],
+[data-theme="light"] .border-white\/\[0\.05\],
+[data-theme="light"] .border-white\/\[0\.06\],
+[data-theme="light"] .border-white\/\[0\.08\],
+[data-theme="light"] .border-white\/10 {
+  border-color: rgb(var(--color-fg) / 0.08) !important;
+}
+
+/* -- Placeholder overrides -- */
+[data-theme="light"] .placeholder\:text-white\/10::placeholder,
+[data-theme="light"] .placeholder\:text-white\/12::placeholder,
+[data-theme="light"] .placeholder\:text-white\/20::placeholder {
+  color: rgb(var(--color-fg) / 0.3) !important;
+}
+
+/* -- Fill overrides for SVG -- */
+[data-theme="light"] .fill-foreground {
+  fill: rgb(var(--color-fg));
+}
+
+/* -- Inline style gradients need this approach -- */
+/* Override known inline dark backgrounds via sections */
+[data-theme="light"] footer,
+[data-theme="light"] [style*="080B08"],
+[data-theme="light"] [style*="030403"],
+[data-theme="light"] [style*="050705"],
+[data-theme="light"] [style*="0F130F"],
+[data-theme="light"] [style*="0E120E"] {
+  background: rgb(var(--color-bg)) !important;
+}
+
+/* -- Light mode gradient adjustments -- */
+[data-theme="light"] .from-background {
+  --tw-gradient-from: rgb(var(--color-bg));
+}
+[data-theme="light"] .to-background {
+  --tw-gradient-to: rgb(var(--color-bg));
+}
+[data-theme="light"] .via-transparent {
+  --tw-gradient-via: transparent;
+}
+
+/* Gold-on-light adjustments — make gold darker for contrast */
+[data-theme="light"] .bg-gold {
+  background-color: rgb(var(--color-gold)) !important;
+}
+
+/* -- Opacity on glass elements -- */
+[data-theme="light"] .bg-gold\/\[0\.02\],
+[data-theme="light"] .bg-gold\/\[0\.03\] {
+  background-color: rgb(var(--color-gold) / 0.05) !important;
+}
+
+/* -- Hover text overrides -- */
+[data-theme="light"] .hover\:text-white:hover {
+  color: rgb(var(--color-fg)) !important;
+}
+[data-theme="light"] .group-hover\:text-white:is(:where(.group):hover *) {
+  color: rgb(var(--color-fg)) !important;
+}
+
+/* -- Box shadow overrides -- */
+[data-theme="light"] .shadow-2xl,
+[data-theme="light"] .shadow-\[-20px_20px_50px_rgba\(0\,0\,0\,0\.5\)\] {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.12) !important;
+}
+[data-theme="light"] .shadow-\[0_50px_100px_rgba\(0\,0\,0\,0\.5\)\] {
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.1) !important;
+}
+[data-theme="light"] .shadow-gold\/20,
+[data-theme="light"] .shadow-2xl.shadow-gold\/20 {
+  --tw-shadow-color: rgb(var(--color-gold) / 0.1);
+}
+
+/* -- Radial gradient atmosphere overrides -- */
+[data-theme="light"] [class*="bg-\[radial-gradient"] {
+  opacity: 0.3 !important;
+}
+[data-theme="light"] .mix-blend-screen {
+  mix-blend-mode: multiply;
+}
+
+/* -- Grayscale images get a lighter treatment on light -- */
+[data-theme="light"] .grayscale {
+  filter: grayscale(30%) !important;
+}
+
+/* -- Reduce vignette opacity in light mode -- */
+[data-theme="light"] .from-background\/60,
+[data-theme="light"] .from-background\/50,
+[data-theme="light"] .from-background\/80,
+[data-theme="light"] .from-background\/40 {
+  --tw-gradient-from: rgb(var(--color-bg) / 0.3);
+}
+
+/* -- Fix emerald live dot visibility -- */
+[data-theme="light"] .bg-emerald-400 {
+  background-color: #059669 !important;
+}
+[data-theme="light"] .bg-emerald-500\/70 {
+  background-color: rgba(5, 150, 105, 0.9) !important;
+}
+
+/* -- Preloader in light mode -- */
+[data-theme="light"] .preloader-bg,
+[data-theme="light"] [class*="bg-\\[\\#0A0E0A\\]"] {
+  background-color: rgb(var(--color-bg)) !important;
+}
+
+/* -- Fix invert on form inputs -- */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  color: rgb(var(--color-fg));
+  background-color: rgb(var(--color-bg));
+}
+
+/* -- Scrollbar text path in footer -- */
+[data-theme="light"] textPath {
+  fill: rgb(var(--color-gold) / 0.5) !important;
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply text-white;
+  }
+
+  .glass-nav {
+    @apply backdrop-blur-2xl;
+    background-color: rgb(var(--color-bg) / 0.8);
+    border-bottom: 1px solid rgb(var(--color-fg) / 0.06);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl rounded-[24px];
+    background-color: rgb(var(--color-surface) / 0.03);
+    border: 1px solid rgb(var(--color-fg) / 0.06);
+  }
+
+  .animate-pulse-gold {
+    animation: none;
+  }
+
+  .section-padding {
+    @apply py-32 md:py-48 px-6 md:px-12 lg:px-24;
+  }
+
+  .display-title {
+    @apply font-display text-[clamp(2.5rem,6vw,6rem)] font-light tracking-tighter leading-[0.9] mb-8;
+  }
+
+  .editorial-paragraph {
+    @apply text-muted-light text-lg md:text-xl font-light max-w-2xl leading-relaxed;
+  }
+
+  .section-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.3em] mb-6 block;
+    color: rgb(var(--color-gold) / 0.75);
+  }
+
+  .hairline {
+    @apply w-full h-px;
+    background-color: rgb(var(--color-fg) / 0.06);
+  }
+
+  .reveal {
+    @apply overflow-hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Gold shimmer */
+@keyframes shimmerGold {
+  0% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
+
+/* ─── Instant Translation System ─── */
+html[data-lang="EN"] .lang-kn {
+  display: none !important;
+}
+
+html[data-lang="KN"] .lang-en {
+  display: none !important;
+}
+
+/* ─── Kannada Typography Fixes (Prevent Overlaps) ─── */
+html[data-lang="KN"] {
+  /* Increase base leading for complex Kannada glyphs */
+  line-height: 1.6;
+}
+
+html[data-lang="KN"] .lang-kn {
+  letter-spacing: 0.01em !important;
+  /* Slightly scale down as Kannada is visually heavier than English serif */
+  font-size: 0.96em;
+}
+
+/* Override tight editorial leading in Kannada mode */
+html[data-lang="KN"] .leading-\[0\.85\],
+html[data-lang="KN"] .leading-\[0\.88\],
+html[data-lang="KN"] .leading-\[0\.9\],
+html[data-lang="KN"] .leading-none,
+html[data-lang="KN"] .leading-tight,
+html[data-lang="KN"] .display-title,
+html[data-lang="KN"] h1, 
+html[data-lang="KN"] h2 {
+  line-height: 1.5 !important;
+  letter-spacing: 0.03em !important;
+}
+
+html[data-lang="KN"] .lang-kn {
+  display: inline-block !important;
+  vertical-align: baseline;
+  /* Slightly scale down as Kannada is visually heavier than English serif */
+  font-size: 0.94em;
+}
+
+
+html { scroll-behavior: smooth; }
