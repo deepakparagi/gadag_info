@@ -1,0 +1,237 @@
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="heroCanvas"></canvas>
+    <canvas class="hero__particles" id="particles"></canvas>
+    <div class="hero__bg-text">Gadag City</div>
+
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">@gadag_info</span>
+      </div>
+
+      <h1 class="hero__title" id="heroTitle">
+        <span class="hero__title-line">
+          <span class="hero__word">Gadag,</span>
+        </span>
+        <span class="hero__title-line">
+          <span class="hero__word"><i>Unearthed.</i></span>
+        </span>
+      </h1>
+
+      <p class="hero__subtitle" id="heroSubtitle">
+        Your city. Your stories. 114K+ voices strong.
+      </p>
+
+      <a href="#feed" class="nav-pill__cta" style="display: inline-flex" data-cursor="hover">
+        <span>Explore Stories</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4L12 12M12 12H6M12 12V6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="section__container">
+      <div class="section-label">01 / About</div>
+      <h2 class="display-title">Who We <i>Are</i></h2>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <p><strong>Gadag Info</strong> is the heartbeat of Gadag city — a community-driven platform that connects 114,000+ people with the stories, events, and culture that shape our home.</p>
+          <p>From breaking local news to celebrating Gadag's rich heritage, we're the bridge between our city and its people. Every post, every story, every reel — crafted with love for this land.</p>
+        </div>
+
+        <div class="about__stats">
+          <div class="about__stat glass-card" data-cursor="hover">
+            <span class="about__stat-number">114K</span>
+            <span class="about__stat-label">Followers</span>
+          </div>
+          <div class="about__stat glass-card" data-cursor="hover">
+            <span class="about__stat-number">500+</span>
+            <span class="about__stat-label">Stories</span>
+          </div>
+          <div class="about__stat glass-card" data-cursor="hover">
+            <span class="about__stat-number">2019</span>
+            <span class="about__stat-label">Founded</span>
+          </div>
+          <div class="about__stat glass-card" data-cursor="hover">
+            <span class="about__stat-number">#1</span>
+            <span class="about__stat-label">Community</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEED ASYMMETRIC GRID
+  ═══════════════════════════════════════════ -->
+  <section class="feed" id="feed">
+    <div class="section__container">
+      <div class="section-label">02 / Feed</div>
+      <h2 class="display-title">Fresh <i>Stories</i></h2>
+
+      <div class="feed__grid">
+        <a href="https://instagram.com/gadag_info" target="_blank" data-cursor="hover" class="feed__card glass-card">
+          <div class="feed__card-image"><img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800" alt="Post"></div>
+          <div class="feed__card-body">
+            <div class="feed__card-tags"><span class="feed__tag">Heritage</span></div>
+            <p class="feed__card-caption">Exploring the ancient Trikuteshwara Temple — a magnificent 11th century Chalukyan masterpiece.</p>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/gadag_info" target="_blank" data-cursor="hover" class="feed__card glass-card">
+          <div class="feed__card-image"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800" alt="Post"></div>
+          <div class="feed__card-body">
+            <div class="feed__card-tags"><span class="feed__tag">Nature</span></div>
+            <p class="feed__card-caption">Sunset over the Malaprabha River. A perfect evening.</p>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/gadag_info" target="_blank" data-cursor="hover" class="feed__card glass-card">
+          <div class="feed__card-image"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Post"></div>
+          <div class="feed__card-body">
+            <div class="feed__card-tags"><span class="feed__tag">City Life</span></div>
+            <p class="feed__card-caption">Station Road Market buzz — heart of Gadag's daily flow.</p>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/gadag_info" target="_blank" data-cursor="hover" class="feed__card glass-card">
+          <div class="feed__card-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Post"></div>
+          <div class="feed__card-body">
+            <div class="feed__card-tags"><span class="feed__tag">History</span></div>
+            <p class="feed__card-caption">Lakkundi Step Well — architectural marvels hidden in our backyard.</p>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/gadag_info" target="_blank" data-cursor="hover" class="feed__card glass-card">
+          <div class="feed__card-image"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800" alt="Post"></div>
+          <div class="feed__card-body">
+            <div class="feed__card-tags"><span class="feed__tag">Culture</span></div>
+            <p class="feed__card-caption">Veereshwara Jatra — When the entire city dances.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EVENTS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="events" id="events">
+    <div class="section__container" style="overflow: visible;">
+      <div class="section-label">03 / Events</div>
+      <h2 class="display-title">City <i>Calendar</i></h2>
+
+      <div class="events__scroll" data-cursor="drag">
+        <article class="events__card">
+          <div class="feed__card-tags" style="margin-bottom: 32px;"><span class="feed__tag" style="background: var(--accent-gold); color: #000; border: none;">MAR 30</span></div>
+          <h3 style="font-size: 2rem; margin-bottom: 16px; font-family: var(--font-display);">Veereshwara Jatra</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Annual grand procession celebrating Gadag's patron deity. Music, food stalls, and community gathering.</p>
+          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--accent-gold);">📍 Gadag Fort Area</span>
+        </article>
+
+        <article class="events__card">
+          <div class="feed__card-tags" style="margin-bottom: 32px;"><span class="feed__tag">APR 02</span></div>
+          <h3 style="font-size: 2rem; margin-bottom: 16px; font-family: var(--font-display);">Startup Gadag Meetup</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Monthly meetup for entrepreneurs and tech enthusiasts. Pitch your ideas, find co-founders, network.</p>
+          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;">📍 TEC Hub, College Road</span>
+        </article>
+
+        <article class="events__card">
+          <div class="feed__card-tags" style="margin-bottom: 32px;"><span class="feed__tag">APR 05</span></div>
+          <h3 style="font-size: 2rem; margin-bottom: 16px; font-family: var(--font-display);">Heritage Walk: Lakkundi</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">Guided tour through Lakkundi's stunning step wells and ancient Chalukyan temples.</p>
+          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;">📍 Lakkundi Village</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       GALLERY MASONRY
+  ═══════════════════════════════════════════ -->
+  <section class="gallery" id="gallery">
+    <div class="section__container">
+      <div class="section-label">04 / Gallery</div>
+      <h2 class="display-title">Through Our <i>Lens</i></h2>
+
+      <div class="gallery__masonry">
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=600" class="gallery__image" alt="Trikuteshwara Temple">
+        </div>
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" class="gallery__image" alt="Malaprabha River">
+        </div>
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" class="gallery__image" alt="Station Road Market">
+        </div>
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" class="gallery__image" alt="Lakkundi Step Well">
+        </div>
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600" class="gallery__image" alt="Gadag Fort Ruins">
+        </div>
+        <div class="gallery__item glass-card" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=600" class="gallery__image" alt="Durgadevi Temple">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROMOTE SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="promote" id="promote">
+    <div class="section__container">
+      <div class="section-label">05 / Promote</div>
+      <h2 class="display-title">Shine in <i>Gadag</i></h2>
+
+      <div class="promote__form-wrapper">
+        <form class="promote__form glass-card" id="promoteForm" novalidate>
+          <div class="promote__form-grid">
+            <div class="form-group">
+              <label class="form-label">Business Name</label>
+              <input class="form-input" type="text" id="businessName" name="businessName" placeholder="e.g. Cloud Nine Café" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Owner Name</label>
+              <input class="form-input" type="text" id="ownerName" name="ownerName" placeholder="e.g. Ravi Kumar" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label">Message / Brief</label>
+              <textarea class="form-input" style="min-height: 120px;" id="message" name="message" placeholder="Describe your business, offer, or campaign idea..." required></textarea>
+            </div>
+          </div>
+          <button class="promote__submit" type="submit" data-cursor="hover">Send Request 🚀</button>
+        </form>
+
+        <div class="promote__success glass-card" id="promoteSuccess" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; z-index: 50;">
+          <h3 class="display-title" style="margin-bottom: 24px;">Sent!</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 32px;">We'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
